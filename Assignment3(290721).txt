@@ -1,0 +1,38 @@
+1. Select au_lname,au_fname from authors
+2.Select * from titles
+   order by title_name desc
+3. select  count(title_id), au_id from titleauthor
+   group by au_id
+4.Select au_id ,au_fname 'author name' from authors
+   where au_id in( select au_id, title_id from titleauthor where title_id in
+     (select title_id, title 'title name' from titles))
+5. Select pub_id , avg(advance) from titles where pub_id 
+    in(Select pub_id ,pub_name 'Publisher Name' from Publishers
+6.
+
+7.Select Price,title,from titles where title like'%s'
+8.select title 'title name' where title like'%and%'
+9.select pub_id, pub_name 'publisher name' from publishers
+   where pub_id in( select pub_id , fname 'employee' from employees)
+10.select pub_id, pub_name 'publisher name' from publisher where pub_id in
+    (select pub_id , count (emp_id) where count(emp_id)>2)
+11.select author_name 'author name' from authors where au_id in 
+   (select au_id, title_id from titleauthor where title_id in
+    (select title_id,pub_id from title where pub_id in( select pub_id, pub_name'publisher' from publishers
+      where pub_name is'Algodata Infosystems')))
+12.select * from employees where pub_id in(select Pub_id,Pub_name 'publisher name' from publishers
+   where pub_name ='Algodata Infosystems'
+13.  select title_id , avg(quantity) 'average' ,ord_date 'order date' from sales
+     where order_date< '1993-05-24'
+     group by title_id
+     having avg(quantity)>3 
+     order by avg(quantity)
+14.select state,city,count(au_id)  from authors
+   where contract=1
+   group by state,city
+   order by state,city
+15.Select au_id,author_fname 'author name' from authorswhere au_id in
+   (select au_id, title_id from titleauthor where title_id in
+    (select title_id, pub_id from title where pub_id in 
+     (select pub_id from publishers where country ='USA'
+ 
